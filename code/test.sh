@@ -1,3 +1,5 @@
 perl test.pl test.txt >out.txt
-python t2.py >data.json
+python2 t2.py >data.json
+cp data.json ../base
+
 
