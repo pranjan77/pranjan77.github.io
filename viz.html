@@ -1,0 +1,47 @@
+<html>
+  <head>
+  <title>Viz</title>
+  <script type="text/javascript">
+
+   function readit(){
+    var textinfo = document.getElementById("textinfo").innerText;
+    var data = textinfo.split("#");
+    msg1 = new SpeechSynthesisUtterance(data[1]);
+    msg1.rate=1
+    msg1.volume=1;
+    window.speechSynthesis.speak(msg1);
+    var  mydemotext = "This is cool"
+    var  val=mydemotext.repeat(data[0]);
+     
+    msg1 = new SpeechSynthesisUtterance(val);
+    msg1.rate=-2;
+    msg1.volume=0
+    window.speechSynthesis.speak(msg1);
+   };
+
+
+
+   function onClick() {
+    var mytext=document.getElementById('details').value;
+    var tp=mytext.split("\n");
+    var i;
+    for (i = 0; i < tp.length; i++) {
+     document.getElementById("textinfo").innerText=tp[i]
+     var p=   readit();
+    } 
+   };
+   </script>
+
+ </head>
+ <body>
+  <form name="myForm" id="myForm"  onsubmit="return onClick();">
+   <textarea name="details" id="details"></textarea>
+   <input type="submit">
+  </form>
+
+  <p id="textinfo">dino</p>
+  <p id="timepause">1</p>
+  <p id="volume">1</p>
+ </body>
+</html>
+
