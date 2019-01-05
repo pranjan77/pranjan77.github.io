@@ -24,6 +24,13 @@
 
 
 
+<!-- Display the countdown timer in an element -->
+<p id="demo"></p>
+
+
+
+
+
 
 <script>
 function timedText() {
@@ -33,73 +40,110 @@ function timedText() {
   var interval=document.getElementById("txt1").value
   alert(interval)
 
+// Set the date we're counting down to
 
-setTimeout(function(){ 
+
+//var countDownDate = new Date("Jan 10, 2019 15:37:25").getTime();
+
+  var countDownDate = new Date().getTime() ;
+
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance =   now - countDownDate;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+
+
+
+ssml="Get ready";  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
+setTimeout(function(){
 i=0;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=1;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*3);
 
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=2;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*4);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=3;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*5);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=4;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*6);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=5;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*7);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=6;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*8);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=7;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*9);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=8;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*10);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=9;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*11);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=10;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*12);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=11;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*13);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=12;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*14);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=13;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*15);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=14;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*16);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=15;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*17);
 
-setTimeout(function(){ 
+setTimeout(function(){
 i=16;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.speechSynthesis.speak(msg1);
 }, interval*18);
 
@@ -107,13 +151,13 @@ i=16;  ssml=ssml1[i];  var msg1 = new SpeechSynthesisUtterance(ssml); window.spe
 
 
 
- 
- 
-  
+
+
+
 
 </script>
 
- 
+
 
 
 
