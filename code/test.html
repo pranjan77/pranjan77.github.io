@@ -1,0 +1,69 @@
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handsontable/6.2.2/handsontable.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/handsontable/6.2.2/handsontable.full.min.css">
+
+</head>
+
+<body>
+<div id="example3" class="hot handsontable htColumnHeaders"></div>
+<script>
+
+function getCarData() {
+    return [
+      ["xylem1", 2017, "black", "black"],
+      ["xylem2", 2018, "blue", "blue"],
+      ["xylem3", 2019, "yellow", "black"],
+      ["xylem4", 2020, "white", "gray"]
+    ];
+  }
+
+
+var
+  container3 = document.getElementById('example3'),
+  hot3;
+
+hot3 = new Handsontable(container3, {
+  manualColumnResize: true,
+    manualRowResize: true,
+  fillHandle: true,
+  data: getCarData(),
+  colHeaders: ['Car', 'Year', 'Chassis color', 'Bumper color'],
+  columns: [
+    {
+      type: 'autocomplete',
+      source: function (query, process) {
+        $.ajax({
+          url: 'https://www.ebi.ac.uk/ols/api/select',
+          dataType: 'json',
+          data: {
+            q: query
+          },
+          success: function (response) {
+            var arr= new Array();
+
+            $.each(response.response.docs, function(index,value) {
+                    arr.push( value.label + " - " + value.iri )
+            });
+            console.log(arr.length)
+            console.log(arr)
+            process(arr);
+
+          }
+        });
+      },
+      strict: false
+    },
+    {}, // Year is a default text column
+    {}, // Chassis color is a default text column
+    {} // Bumper color is a default text column
+  ],
+  colWidths: [300, 300, 300, 300],
+  colHeights: [1, 1, 1, 1]
+
+});
+
+
+</script>
+
+</body>
