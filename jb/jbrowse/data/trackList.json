@@ -1,0 +1,26 @@
+{
+   "formatVersion" : 1,
+   "defaultTracks" : "strain1",
+   "tracks" : [
+      
+      {
+         "label" : "refseqs",
+         "key": "Reference sequence",
+         "storeClass" : "JBrowse/Store/SeqFeature/IndexedFasta",
+         "urlTemplate" : "https://appdev.kbase.us/dynserv/f973a4ba5d867a9106efcca13f51a082033a5bc1.VariationFileServ/dataset/data/session/5ae3dd09-f52a-483d-a700-5c29724d1b62/jbrowse/data/x.fa",
+         "useAsRefSeqStore" : true,
+         "type" : "Sequence"
+      },
+
+      refSeqs="https://appdev.kbase.us/dynserv/f973a4ba5d867a9106efcca13f51a082033a5bc1.VariationFileServ/dataset/data/session/5ae3dd09-f52a-483d-a700-5c29724d1b62/jbrowse/data/x.fa.fai",
+
+{
+         "label"         : "mysnps",
+         "key"           : "SNPs from VCF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/VCFTabix",
+         "urlTemplate"   : "https://appdev.kbase.us/dynserv/f973a4ba5d867a9106efcca13f51a082033a5bc1.VariationFileServ/dataset/data/session/5ae3dd09-f52a-483d-a700-5c29724d1b62/jbrowse/data/x.vcf.gz",
+         "type"          : "JBrowse/View/Track/CanvasVariants"
+      }
+
+   ]
+}
